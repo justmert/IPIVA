@@ -6,8 +6,17 @@
 
 IPIVA provides decentralized AI video analytics with sharing AI metadata across OrbitDB peer networks.
 
-## Architecture
+IPIVA is fully expandible *framework* for building decentralized AI video analytics applications under decentralized peer to peer networks and can be easily used per use case. 
 
+In short, IPIVA aims to build an AI and blockchain solution using OrbidDB  
+
+#### Project status & support
+
+* Status: **in active development**
+* Release: **Alpha**
+
+## Architecture
+  
 <p align="center">
   <img src="media/ipiva-diagram.svg">
 </p>
@@ -58,7 +67,15 @@ IPIVA will do the following,
 # OrbitDB
 OrbitDB is a serverless, distributed, peer-to-peer database. OrbitDB uses IPFS as its data storage and IPFS Pubsub to automatically sync databases with peers. 
 
-IPIVA shares generated metadata shared across IPFS peer network with OrbitDB databases. IPIVA uses OrbitDB log database implementation and generates hash upon successfull database insertion. After running IPIVA application, you will see the following: 
+IPIVA shares generated metadata shared across IPFS peer network with OrbitDB databases. IPIVA uses OrbitDB log database implementation and generates hash upon successfull database insertion. After starting IPIVA application, you will see the following: 
+
+```
+Orbit-db address string:  /orbitdb/zdpuAna8xu8B7daiwEVW2TvyPXv6mwsK4yxSnxg7fNwdEK5WS/ipiva
+```
+
+This means that OrbitDB created a database for IPIVA metadata. It is important to know the database string in OrbitDB as other peers will need it in order to interact with or replicate the database.
+
+Each IPIVA metadata is added to this database and upon successull insertion, you will see like the following,
 
 ```
 Metadata saved to Orbit-db: zdpuAyAszinttutqCezRRN1wJCSxUpygcVx9Pg8jW5wR7mF4f
@@ -72,7 +89,8 @@ You can inspect each IPIVA generated metadata using IPFS inspect. Open `http://0
 </p>
 
 
-Under the `payload` key, we will see the metadata:
+Under the `payload` key, we will see the IPIVA metadata:
+
 
 ```
 {
@@ -150,3 +168,5 @@ Under the `payload` key, we will see the metadata:
     "videoPath": ""
 }
 ```
+
+IPIVA can open any RTSP, video file or HTTP source and load any Nvidia TAO AI model to do inference on sources. 
