@@ -1,12 +1,18 @@
 echo "Deleting IPIVA images..."
+docker rm --force ipiva-ipfs || true && \
+docker rm --force zookeeper || true && \
+docker rm --force broker || true && \
+docker rm --force ipiva-orbit-db || true && \
+docker rm --force ipiva-app || true && \
 docker rmi ipiva-app:latest || true && \
 docker rmi ipiva-orbit-db:latest || true && \
 docker rmi ipiva-ipfs:latest || true
 
+
 echo "Building IPIVA Dockerfiles..."
 docker build -f ipiva.Dockerfile -t ipiva-app:latest . &&
 docker build -f orbitdb.Dockerfile -t ipiva-orbit-db:latest . && \
-docker build -f ipfs.Dockerfile -t ipiva-ipfs:latest
+docker build -f ipfs.Dockerfile -t ipiva-ipfs:latest .
 
 echo "Configuring IPIVA IPFS settings..."
 docker-compose up -d ipiva-ipfs && \

@@ -38,6 +38,7 @@ services:
     image: ipiva-app:latest
     container_name: ipiva-app
     network_mode: "host"
+    privileged: true
     tty: true
     deploy:
       resources:
@@ -45,4 +46,8 @@ services:
           devices:
             - capabilities: [gpu]
     environment:
-      NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility,display"
+      NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility"
+    volumes:
+      - type: bind
+        source: /tmp/.X11-unix
+        target: /tmp/.X11-unix
