@@ -55,9 +55,5 @@ RUN cd /opt/nvidia/deepstream/deepstream && \
     cp /usr/local/lib/librdkafka* /opt/nvidia/deepstream/deepstream/lib/ && \
     ldconfig
 
-RUN /root/ipiva/ipiva-app && \
-    make && \
-    make install && \
-    rm deepstream_test5_app_main.o && \
-    rm deepstream_utc.o && \
-    rm ipiva-app
+COPY src/ipiva-app /root/ipiva/ipiva-app
+COPY configs /root/ipiva/configs

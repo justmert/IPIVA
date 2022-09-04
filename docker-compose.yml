@@ -1,5 +1,10 @@
 version: '3'
 services:
+  ipiva-ipfs:
+    image:  ipiva-ipfs:latest
+    container_name: ipiva-ipfs
+    network_mode: "host"
+
   zookeeper:
     image: confluentinc/cp-zookeeper:7.0.1
     container_name: zookeeper
@@ -22,3 +27,22 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  ipiva-orbit-db:
+    image: ipiva-orbit-db:latest
+    container_name: ipiva-orbit-db
+    network_mode: "host"
+    tty: true
+
+  ipiva-app:
+    image: ipiva-app:latest
+    container_name: ipiva-app
+    network_mode: "host"
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: "compute,video,utility,display"
