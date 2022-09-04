@@ -4,11 +4,15 @@
   <img width="300" height="300" src="media/IPIVA.png">
 </p>
 
-IPIVA provides decentralized AI video analytics with sharing AI metadata across OrbitDB peer networks.
+IPIVA provides decentralized AI video analytics with syncing AI model metadata across OrbitDB peer networks.
 
-IPIVA is fully expandible *framework* for building decentralized AI video analytics applications under decentralized peer to peer networks and can be easily used per use case. 
+IPIVA is fully expandible *framework* for building AI video analytics applications under decentralized peer to peer networks and can be easily used per use case. 
 
-In short, IPIVA aims to build an AI and blockchain solution using OrbidDB  
+In short, IPIVA aims to build an AI and blockchain solution using **OrbitDB**.  
+
+<p align="left">
+  <img width="100" height="100" src="https://avatars.githubusercontent.com/u/25079463?s=200&v=4">
+</p>
 
 #### Project status & support
 
@@ -20,6 +24,7 @@ In short, IPIVA aims to build an AI and blockchain solution using OrbidDB
 <p align="center">
   <img src="media/ipiva-diagram.svg">
 </p>
+
 
 # Requirements
 
@@ -169,4 +174,7 @@ Under the `payload` key, we will see the IPIVA metadata:
 }
 ```
 
-IPIVA can open any RTSP, video file or HTTP source and load any Nvidia TAO AI model to do inference on sources. 
+IPIVA automatically loads default AI pipeline that detects cars, people and road signs  as well as an example video source to do inference on it. The AI pipeline outputs above metadata and shows car detection coordinates, location, and its analytics. Besides IPIVA can open any RTSP, video file or HTTP source and load any Nvidia TAO AI model to do inference on sources. 
+
+Thus IPIVA framework can be used for any use cases that want to implement AI and Blockchain solution. 
+
